@@ -1,0 +1,30 @@
+public class Fibonacci {
+    public static void main(String[] args) {
+        // Check if an argument is provided
+        if (args.length != 1) {
+            System.out.println("Usage: java Fibonacci <n>");
+            return;
+        }
+
+        try {
+            int n = Integer.parseInt(args[0]);
+
+            if (n < 0) {
+                System.out.println("Please enter a non-negative integer.");
+                return;
+            }
+
+            System.out.println("Fibonacci(" + n + ") = " + fibonacci(n));
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter an integer.");
+        }
+    }
+
+    // Recursive function to compute Fibonacci numbers
+    public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
